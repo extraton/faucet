@@ -11,6 +11,11 @@ class Kernel extends BaseKernel
 {
     use MicroKernelTrait;
 
+    public function getLogDir()
+    {
+        return '/var/log/app/faucet';
+    }
+
     protected function configureContainer(ContainerConfigurator $container): void
     {
         $container->import('../config/{packages}/*.yaml');

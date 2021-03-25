@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8a9a2eb7d2fd01fec399e0a9a10e4180",
+    "content-hash": "c3aab4970e81e8e0ec86d5dbf0f82b4a",
     "packages": [
         {
             "name": "composer/package-versions-deprecated",
@@ -1473,6 +1473,58 @@
             "time": "2021-01-14T21:52:44+00:00"
         },
         {
+            "name": "google/recaptcha",
+            "version": "1.2.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/google/recaptcha.git",
+                "reference": "614f25a9038be4f3f2da7cbfd778dc5b357d2419"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/google/recaptcha/zipball/614f25a9038be4f3f2da7cbfd778dc5b357d2419",
+                "reference": "614f25a9038be4f3f2da7cbfd778dc5b357d2419",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.2.20|^2.15",
+                "php-coveralls/php-coveralls": "^2.1",
+                "phpunit/phpunit": "^4.8.36|^5.7.27|^6.59|^7.5.11"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.2.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "ReCaptcha\\": "src/ReCaptcha"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "Client library for reCAPTCHA, a free service that protects websites from spam and abuse.",
+            "homepage": "https://www.google.com/recaptcha/",
+            "keywords": [
+                "Abuse",
+                "captcha",
+                "recaptcha",
+                "spam"
+            ],
+            "support": {
+                "forum": "https://groups.google.com/forum/#!forum/recaptcha",
+                "issues": "https://github.com/google/recaptcha/issues",
+                "source": "https://github.com/google/recaptcha"
+            },
+            "time": "2020-03-31T17:50:54+00:00"
+        },
+        {
             "name": "laminas/laminas-code",
             "version": "4.0.0",
             "source": {
@@ -2119,6 +2171,58 @@
                 "psr-3"
             ],
             "time": "2020-03-23T09:12:05+00:00"
+        },
+        {
+            "name": "radianceteam/ton-client-php",
+            "version": "1.9.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/radianceteam/ton-client-php.git",
+                "reference": "9073503b5c6015a7ce2069a8d5f20adec9837d9b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/radianceteam/ton-client-php/zipball/9073503b5c6015a7ce2069a8d5f20adec9837d9b",
+                "reference": "9073503b5c6015a7ce2069a8d5f20adec9837d9b",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "ext-ton_client": ">=1.9.0",
+                "php": ">=7.4",
+                "psr/log": "^1.1"
+            },
+            "require-dev": {
+                "monolog/monolog": "^2.1",
+                "nette/php-generator": "^3.5",
+                "phpunit/phpunit": "^9.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "\\": "src/"
+                },
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Andrew Anisimov",
+                    "email": "anisimov.new@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "TON Client Wrapper for PHP",
+            "support": {
+                "issues": "https://github.com/radianceteam/ton-client-php/issues",
+                "source": "https://github.com/radianceteam/ton-client-php/tree/1.9.0"
+            },
+            "time": "2021-02-28T19:20:56+00:00"
         },
         {
             "name": "sensio/framework-extra-bundle",
@@ -7729,5 +7833,5 @@
         "ext-iconv": "*"
     },
     "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "plugin-api-version": "2.0.0"
 }
