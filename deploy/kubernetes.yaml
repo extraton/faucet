@@ -27,9 +27,30 @@ spec:
         spec:
             containers:
                 -   name: faucet-nginx
-                    image: docker.pkg.github.com/extraton/faucet/faucet-worker:0.1.1
+                    image: docker.pkg.github.com/extraton/faucet/faucet-worker:0.1.3
                     ports: [{containerPort: 80}]
                     command: ['/bin/bash']
                     args: ['-c', "php-fpm --nodaemonize & nginx -g 'daemon off;'"]
+                    env:
+                        - name: APP_ENV
+                          value: "prod"
+                        - name: APP_SECRET
+                          value: ""
+                        - name: APP_VERSION
+                          value: "0.1.3"
+                        - name: SITE_NAME
+                          value: "Faucet.extraTON"
+                        - name: DOMAIN
+                          value: "faucet.extraton.io"
+                        - name: RECAPTCHA_SITE_KEY
+                          value: "6LcxKI4aAAAAACit3yybK5N-VE53t4ag5j7Kg288"
+                        - name: RECAPTCHA_SECRET_KEY
+                          value: ""
+                        - name: WALLET_ADDRESS
+                          value: "0:52cf349917fdebcbc104db38772592b2fb2626c4d9eb178010628ead737d1b15"
+                        - name: WALLET_PUBLIC
+                          value: "1edb8498723c0e43b8ccac8b010bbf78155f2c7997d55af6e7da620f5e552399"
+                        - name: WALLET_SECRET
+                          value: ""
             imagePullSecrets:
                 -   name: github-registry
