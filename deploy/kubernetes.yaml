@@ -31,3 +31,5 @@ spec:
                     ports: [{containerPort: 80}]
                     command: ['/bin/bash']
                     args: ['-c', "php-fpm --nodaemonize & nginx -g 'daemon off;'"]
+            imagePullSecrets:
+                -   name: github-registry
