@@ -4,6 +4,7 @@ RUN apt update
 RUN apt install git zip nginx -y
 COPY --from=composer:2.0.11 /usr/bin/composer /usr/local/bin/composer
 
+COPY ./deploy/nginx.mime.types /etc/nginx/mime.types
 COPY ./deploy/default.nginx.conf /etc/nginx/conf.d
 COPY ./ /var/www/html
 

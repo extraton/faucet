@@ -14,7 +14,7 @@ use TON\TonClient;
 
 class IndexController extends AbstractController
 {
-    private const TOKEN_AMOUNT = '111000000000';
+    private const TOKEN_AMOUNT = '111001000000';
 
     public function __construct(
         private string $siteName,
@@ -24,17 +24,19 @@ class IndexController extends AbstractController
         private string $walletAddress,
         private string $walletPublic,
         private string $walletSecret,
+        private string $walletColdAddress,
     )
     {
     }
 
-    public function index(Request $request): Response
+    public function index(): Response
     {
         $jsConfig = [
             'siteName' => $this->siteName,
             'domain' => $this->domain,
             'recaptchaSiteKey' => $this->recaptchaSiteKey,
-            'ip' => $request->getClientIp(),
+            'walletAddress' => $this->walletAddress,
+            'walletColdAddress' => $this->walletColdAddress,
         ];
         $data = [
             'jsConfig' => addslashes(json_encode($jsConfig, JSON_HEX_QUOT | JSON_HEX_APOS | JSON_UNESCAPED_UNICODE)),

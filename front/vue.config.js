@@ -1,3 +1,4 @@
+const CopyPlugin = require('copy-webpack-plugin');
 const path = require("path");
 const fs = require('fs');
 const webpack = require('webpack');
@@ -27,6 +28,11 @@ const vueConfig = {
     plugins: [
       new webpack.optimize.LimitChunkCountPlugin({
         maxChunks: 1,
+      }),
+      new CopyPlugin({
+        patterns: [
+          {from: './node_modules/@tonclient/lib-web/tonclient.wasm', to: 'tonclient_1.11.1.wasm'},
+        ],
       }),
     ],
   },

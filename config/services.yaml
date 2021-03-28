@@ -6,6 +6,7 @@ parameters:
   walletAddress: '%env(WALLET_ADDRESS)%'
   walletPublic: '%env(WALLET_PUBLIC)%'
   walletSecret: '%env(WALLET_SECRET)%'
+  walletColdAddress: '%env(WALLET_COLD_ADDRESS)%'
 
 services:
   _defaults:
@@ -28,3 +29,4 @@ services:
       - '%walletAddress%'
       - '%walletPublic%'
       - '%walletSecret%'
+      - '%walletColdAddress%'

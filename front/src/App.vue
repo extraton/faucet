@@ -12,20 +12,25 @@
           <span>Support</span>
         </v-btn>
         <template v-slot:extension>
-          <v-spacer/>
-          <div class="alsoTry align-center">
-            <span class="text--primary subtitle-1">Also try:</span>
-            <a :href="alsoTryRandom.url" target="_blank" class="alsoTry__link">
-              {{ alsoTryRandom.name }}
-            </a>
-          </div>
+          <v-tabs align-with-title>
+            <v-tabs-slider color="#272727"/>
+            <v-tab :to="{name: 'main'}" exact>Home</v-tab>
+            <v-tab :to="{name: 'about'}">About</v-tab>
+            <v-spacer/>
+            <div class="alsoTry align-center">
+              <span class="text--primary subtitle-1">Also try:</span>
+              <a :href="alsoTryRandom.url" target="_blank" class="alsoTry__link">
+                {{ alsoTryRandom.name }}
+              </a>
+            </div>
+          </v-tabs>
         </template>
       </v-app-bar>
     </div>
 
     <v-main>
       <v-container>
-        <faucet-card/>
+        <router-view/>
       </v-container>
     </v-main>
   </v-app>
@@ -33,10 +38,9 @@
 
 <script>
 import InstallExtensionDialog from "@/components/InstallExtensionDialog";
-import FaucetCard from "@/components/FaucetCard";
 
 export default {
-  components: {FaucetCard, InstallExtensionDialog},
+  components: {InstallExtensionDialog},
   data: () => ({
     snack: {isShow: false, text: ''},
     alsoTry: [
@@ -68,9 +72,9 @@ export default {
   }
 }
 
-//@media screen and (max-width: 500px) {
-//  .alsoTry {
-//    display: none !important;
-//  }
-//}
+@media screen and (max-width: 500px) {
+  .alsoTry {
+    display: none !important;
+  }
+}
 </style>

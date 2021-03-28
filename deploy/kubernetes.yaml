@@ -47,10 +47,12 @@ spec:
                         - name: RECAPTCHA_SECRET_KEY
                           value: ""
                         - name: WALLET_ADDRESS
-                          value: "0:52cf349917fdebcbc104db38772592b2fb2626c4d9eb178010628ead737d1b15"
+                          value: "0:f17d533a33604cbfd106fd367830ee705d4afeee95682bc836e4847a89e807d5"
                         - name: WALLET_PUBLIC
-                          value: "1edb8498723c0e43b8ccac8b010bbf78155f2c7997d55af6e7da620f5e552399"
+                          value: "e88d332d51835be6599ecfca6d9b61e427764e47203615ab32c1aba0e00b09fa"
                         - name: WALLET_SECRET
                           value: ""
+                        - name: WALLET_COLD_ADDRESS
+                          value: "0:52cf349917fdebcbc104db38772592b2fb2626c4d9eb178010628ead737d1b15"
             imagePullSecrets:
                 -   name: github-registry
