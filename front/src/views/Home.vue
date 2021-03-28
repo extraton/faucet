@@ -8,7 +8,10 @@
         <v-card-text>
           <div class="home__available">
             <div class="text-h5">Available:</div>
-            <div v-if="null !== available" class="text-h5 white--text">{{ available }}</div>
+            <div v-if="null !== available" class="text-h5 white--text">
+              {{ available }}
+              <v-icon style="margin-top:-10px">$vuetify.icons.tonRuby</v-icon>
+            </div>
             <v-skeleton-loader v-else type="heading" width="150"/>
           </div>
           <v-text-field v-model="address" :rules="[rules.required,rules.address]" label="Address"
@@ -116,7 +119,7 @@ export default {
 
     > div:first-child {
       text-align: right;
-      padding-right: 7px;
+      padding-right: 10px;
     }
   }
 
