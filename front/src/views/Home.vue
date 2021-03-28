@@ -107,7 +107,7 @@ export default {
 .home {
   &__available {
     display: table;
-    margin: 25px auto 0;
+    margin: 25px auto;
 
     > div {
       display: table-cell;

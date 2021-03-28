@@ -27,7 +27,7 @@ spec:
         spec:
             containers:
                 -   name: faucet-nginx
-                    image: docker.pkg.github.com/extraton/faucet/faucet-worker:0.1.3
+                    image: docker.pkg.github.com/extraton/faucet/faucet-worker:0.2.1
                     ports: [{containerPort: 80}]
                     command: ['/bin/bash']
                     args: ['-c', "php-fpm --nodaemonize & nginx -g 'daemon off;'"]
