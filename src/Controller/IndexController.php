@@ -37,6 +37,7 @@ class IndexController extends AbstractController
             'recaptchaSiteKey' => $this->recaptchaSiteKey,
             'walletAddress' => $this->walletAddress,
             'walletColdAddress' => $this->walletColdAddress,
+            'ip' => $request->getClientIp(),
         ];
         $data = [
             'jsConfig' => addslashes(json_encode($jsConfig, JSON_HEX_QUOT | JSON_HEX_APOS | JSON_UNESCAPED_UNICODE)),
