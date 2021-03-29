@@ -29,7 +29,7 @@ class IndexController extends AbstractController
     {
     }
 
-    public function index(): Response
+    public function index(Request $request): Response
     {
         $jsConfig = [
             'siteName' => $this->siteName,
