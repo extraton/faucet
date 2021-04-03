@@ -1,7 +1,7 @@
 FROM radianceteam/ton-client-php:1.9.0-php8.0-fpm
 
 RUN apt update
-RUN apt install git zip nginx -y
+RUN apt install git zip nginx php-mysql -y
 COPY --from=composer:2.0.11 /usr/bin/composer /usr/local/bin/composer
 
 COPY ./deploy/nginx.mime.types /etc/nginx/mime.types
