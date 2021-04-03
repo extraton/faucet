@@ -30,3 +30,4 @@ services:
       - '%walletPublic%'
       - '%walletSecret%'
       - '%walletColdAddress%'
+      - '@doctrine.orm.default_entity_manager'

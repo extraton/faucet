@@ -1,11 +1,15 @@
 <?php namespace App\Controller;
 
+use App\Entity;
+use App\Repository\RequestRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use ReCaptcha\ReCaptcha;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
+use Symfony\Component\HttpKernel\Exception\TooManyRequestsHttpException;
 use TON\Abi\ParamsOfEncodeMessage;
 use TON\Client\ClientConfig;
 use TON\Processing\ParamsOfSendMessage;
@@ -25,6 +29,7 @@ class IndexController extends AbstractController
         private string $walletPublic,
         private string $walletSecret,
         private string $walletColdAddress,
+        private EntityManagerInterface $em,
     )
     {
     }
@@ -57,6 +62,7 @@ class IndexController extends AbstractController
         $form = $request->request->get('form');
         $address = $form['address'] ?? null;
         $captcha = $form['captcha'] ?? null;
+        $ip = $request->getClientIp();
 
         try {
             $this->checkCaptcha($captcha, $request->getClientIp());
@@ -64,7 +70,18 @@ class IndexController extends AbstractController
             throw new AccessDeniedHttpException('Wrong captcha.');
         }
 
+        /** @var RequestRepository $requestRepository */
+        $requestRepository = $this->em->getRepository(Entity\Request::class);
+        $recentlyRequest = $requestRepository->findRecently($address, $ip);
+        if (null !== $recentlyRequest) {
+            throw new TooManyRequestsHttpException('Sorry, you recently received tokens.');
+        }
+
         $this->send($address);
+
+        $currentRequest = new Entity\Request($address, $ip);
+        $this->em->persist($currentRequest);
+        $this->em->flush();
 
         return new JsonResponse([]);
     }

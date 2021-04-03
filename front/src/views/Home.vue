@@ -62,6 +62,12 @@ export default {
       success: function () {
         this.isRequested = true;
       }.bind(this),
+      error: function (response) {
+        if (429 === response.status) {
+         this.$snack.danger({text: 'Sorry, you recently received tokens.'});
+        }
+        this.$refs.recaptcha.reset();
+      }.bind(this),
     });
     if (typeof this.$route.query.address === 'string') {
       this.address = this.$route.query.address;

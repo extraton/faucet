@@ -27,7 +27,7 @@ spec:
         spec:
             containers:
                 -   name: faucet-nginx
-                    image: docker.pkg.github.com/extraton/faucet/faucet-worker:0.2.2
+                    image: docker.pkg.github.com/extraton/faucet/faucet-worker:0.3
                     ports: [{containerPort: 80}]
                     command: ['/bin/bash']
                     args: ['-c', "php-fpm --nodaemonize & nginx -g 'daemon off;'"]
@@ -37,7 +37,7 @@ spec:
                         - name: APP_SECRET
                           value: ""
                         - name: APP_VERSION
-                          value: "0.2.2"
+                          value: "0.3"
                         - name: SITE_NAME
                           value: "Faucet.extraTON"
                         - name: DOMAIN
@@ -54,5 +54,7 @@ spec:
                           value: ""
                         - name: WALLET_COLD_ADDRESS
                           value: "0:52cf349917fdebcbc104db38772592b2fb2626c4d9eb178010628ead737d1b15"
+                        - name: DATABASE_URL
+                          value: "mysql://faucet:pass@127.0.0.1:3306/faucet?serverVersion=mariadb-10.5.6"
             imagePullSecrets:
                 -   name: github-registry
