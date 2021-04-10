@@ -21,7 +21,7 @@ class RequestRepository extends ServiceEntityRepository
 
     public function findRecently(string $address, string $ip): ?Request
     {
-        $date = new \DateTime('-1 week', new \DateTimeZone('Utc'));
+        $date = new \DateTime('-1 day', new \DateTimeZone('Utc'));
         return $this->createQueryBuilder('n')
             ->where('n.address = :address OR n.ip = :ip')
             ->setParameter('address', $address)
