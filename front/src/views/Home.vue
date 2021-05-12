@@ -90,9 +90,9 @@ export default {
     async request() {
       this.loading = true;
       try {
-        if (!await ton.isExtensionAvailableWithMinimalVersion()) {
-          this.openInstallDialog();
-        } else {
+        // if (!await ton.isExtensionAvailableWithMinimalVersion()) {
+        //   this.openInstallDialog();
+        // } else {
           this.error = null;
           await this.$refs.form.validate();
           if (this.valid) {
@@ -103,7 +103,7 @@ export default {
             }
 
           }
-        }
+        // }
       } finally {
         this.loading = false;
       }
