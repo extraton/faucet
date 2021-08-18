@@ -80,9 +80,10 @@ export default {
     ]),
     async setAvailable() {
       const walletAddressData = await ton.findAddressData('net1.ton.dev', this.config.walletAddress);
-      const walletColdAddressData = await ton.findAddressData('net1.ton.dev', this.config.walletColdAddress);
+      // const walletColdAddressData = await ton.findAddressData('net1.ton.dev', this.config.walletColdAddress);
 
-      this.available = `${ton.convertFromNanoToIntView(walletAddressData.balance)} (${ton.convertFromNanoToIntView(walletColdAddressData.balance)})`;
+      this.available = `${ton.convertFromNanoToIntView(walletAddressData.balance)}`;
+      // this.available = `${ton.convertFromNanoToIntView(walletAddressData.balance)} (${ton.convertFromNanoToIntView(walletColdAddressData.balance)})`;
     },
     onVerify(captcha) {
       this.captcha = captcha;
@@ -90,9 +91,9 @@ export default {
     async request() {
       this.loading = true;
       try {
-        // if (!await ton.isExtensionAvailableWithMinimalVersion()) {
-        //   this.openInstallDialog();
-        // } else {
+        if (!await ton.isExtensionAvailableWithMinimalVersion()) {
+          this.openInstallDialog();
+        } else {
           this.error = null;
           await this.$refs.form.validate();
           if (this.valid) {
@@ -101,9 +102,8 @@ export default {
             } else {
               this.form.submit({data: {address: this.address, captcha: this.captcha}});
             }
-
           }
-        // }
+        }
       } finally {
         this.loading = false;
       }
