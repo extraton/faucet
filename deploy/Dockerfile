@@ -1,4 +1,4 @@
-FROM radianceteam/ton-client-php:1.9.0-php8.0-fpm
+FROM radianceteam/ton-client-php:1.19.0-php8.0-fpm
 
 RUN apt update
 RUN apt install git zip nginx -y

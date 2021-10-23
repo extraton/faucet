@@ -89,7 +89,7 @@ class IndexController extends AbstractController
     private function send(string $address): void
     {
         $abi = ['type' => 'Json', 'value' => file_get_contents(__DIR__ . '/../../contracts/SafeMultisigWallet.abi.json')];
-        $client = new TonClient(new ClientConfig(['network' => ['server_address' => 'net1.ton.dev']]));
+        $client = new TonClient(new ClientConfig(['network' => ['endpoints' => ['net1.ton.dev', 'net5.ton.dev']]]));
         $message = $client->abi()->async()->encodeMessageAsync(new ParamsOfEncodeMessage(
             [
                 'abi' => $abi,

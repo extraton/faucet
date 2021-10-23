@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c3aab4970e81e8e0ec86d5dbf0f82b4a",
+    "content-hash": "b593720df10dafbdf38b1ec5dd5774fd",
     "packages": [
         {
             "name": "composer/package-versions-deprecated",
@@ -2174,25 +2174,26 @@
         },
         {
             "name": "radianceteam/ton-client-php",
-            "version": "1.9.0",
+            "version": "1.23.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/radianceteam/ton-client-php.git",
-                "reference": "9073503b5c6015a7ce2069a8d5f20adec9837d9b"
+                "reference": "50af7a1c3f10424ce7561739ea819a6d74bdc4cf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/radianceteam/ton-client-php/zipball/9073503b5c6015a7ce2069a8d5f20adec9837d9b",
-                "reference": "9073503b5c6015a7ce2069a8d5f20adec9837d9b",
+                "url": "https://api.github.com/repos/radianceteam/ton-client-php/zipball/50af7a1c3f10424ce7561739ea819a6d74bdc4cf",
+                "reference": "50af7a1c3f10424ce7561739ea819a6d74bdc4cf",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
-                "ext-ton_client": ">=1.9.0",
+                "ext-ton_client": ">=1.23.0",
                 "php": ">=7.4",
                 "psr/log": "^1.1"
             },
             "require-dev": {
+                "ext-readline": "*",
                 "monolog/monolog": "^2.1",
                 "nette/php-generator": "^3.5",
                 "phpunit/phpunit": "^9.4"
@@ -2220,9 +2221,9 @@
             "description": "TON Client Wrapper for PHP",
             "support": {
                 "issues": "https://github.com/radianceteam/ton-client-php/issues",
-                "source": "https://github.com/radianceteam/ton-client-php/tree/1.9.0"
+                "source": "https://github.com/radianceteam/ton-client-php/tree/1.23.0"
             },
-            "time": "2021-02-28T19:20:56+00:00"
+            "time": "2021-10-06T13:10:46+00:00"
         },
         {
             "name": "sensio/framework-extra-bundle",
@@ -7833,5 +7834,5 @@
         "ext-iconv": "*"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.0.0"
+    "plugin-api-version": "2.1.0"
 }
