@@ -12,7 +12,7 @@ yarn run build
 cd ${dir}/build
 cp -R ${dir}/build/front/dist/* ${dir}/build/public/
 rm -rf ./{.git,front}
-docker build -f ../deploy/Dockerfile -t docker.pkg.github.com/extraton/faucet/faucet-worker:${1} .
-docker push docker.pkg.github.com/extraton/faucet/faucet-worker:${1}
+docker build -f ../deploy/Dockerfile -t ghcr.io/extraton/faucet/faucet-worker:${1} .
+docker push ghcr.io/extraton/faucet/faucet-worker:${1}
 cd ../
 rm -rf ${dir}/build
