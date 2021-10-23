@@ -79,7 +79,7 @@ export default {
       'openInstallDialog',
     ]),
     async setAvailable() {
-      const walletAddressData = await ton.findAddressData('net1.ton.dev', this.config.walletAddress);
+      const walletAddressData = await ton.findAddressData('net.ton.dev', this.config.walletAddress);
       // const walletColdAddressData = await ton.findAddressData('net1.ton.dev', this.config.walletColdAddress);
 
       this.available = `${ton.convertFromNanoToIntView(walletAddressData.balance)}`;

@@ -15,11 +15,10 @@ const _ = {
   provider: null,
   async getClient(server) {
     if (null === this.client || server !== this.clientServer) {
+      const endpoints = 'net.ton.dev' === server ? ['net1.ton.dev', 'net5.ton.dev'] : server;
       this.clientServer = server;
       this.client = new TonClient({
-        network: {
-          server_address: server
-        }
+        network: {endpoints}
       });
     }
     return this.client;
